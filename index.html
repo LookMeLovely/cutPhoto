@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    #workArea {
+      position: relative;
+      max-height: 80vh;
+    }
+
+    #backImg {
+      max-height: 80vh;
+
+      max-width:100% ;
+    }
+
+    #chooseBorder {
+      box-sizing: border-box;
+      position: absolute;
+      background: linear-gradient(#ffffff, #ffffff) left top,
+        linear-gradient(#ffffff, #ffffff) left top,
+        linear-gradient(#ffffff, #ffffff) right top,
+        linear-gradient(#ffffff, #ffffff) right top,
+        linear-gradient(#ffffff, #ffffff) left bottom,
+        linear-gradient(#ffffff, #ffffff) left bottom,
+        linear-gradient(#ffffff, #ffffff) right bottom,
+        linear-gradient(#ffffff, #ffffff) right bottom;
+      background-repeat: no-repeat;
+      background-size: 3px 40px, 40px 3px;
+      padding: 3px;
+
+    }
+
+    #inBorder {
+      border: 1px solid #ffffff;
+      height: 100%;
+      width: 100%;
+    }
+
+    .btnArea {
+      display: flex;
+      justify-content: space-between;
+      position: fixed;
+      bottom: 20px;
+      width: 100vw;
+    }
+    .btnArea>div{
+      flex: 1;
+      text-align: center;
+    }
+    .btnArea button{
+      background: green;
+      border: none;
+      color: #ffffff;
+      padding: 5px 15px;
+      border-radius: 5px;
+      font-weight: 600;
+    }
+  </style>
+</head>
+
+<body>
+  <div style="width:100vw;overflow:hidden;background:black;height:100vh">
+    <!-- 操作区 -->
+    <div id="workArea">
+      <!-- 底层图片 -->
+      <div id="imgOut" style="padding: 5px;max-height:80vh;text-align:center">
+        <img id="backImg" src="" alt="">
+      </div>
+      <!-- 操作边框 -->
+      <div id="chooseBorder" >
+        <div id="inBorder"></div>
+      </div>
+    </div>
+    <canvas id="myCanvas" style="display:none;margin:0 auto">
+      您的浏览器不支持 HTML5 canvas 标签。
+    </canvas>
+    <!-- 按钮 -->
+    <div class="btnArea">
+      <div>
+        <input id="chooseImg" type="file" accept="image" style="display: none;"/>
+        <button onclick="document.querySelector('#chooseImg').click()">打开</button>
+      </div>
+      <div>
+        <button id="cutBtn">裁剪</button>
+      </div>
+      <div>
+        <button id="save">保存</button>
+      </div>
+    </div>
+
+  </div>
+</body>
+<script src="./index.js"></script>
+
+
+</html>
